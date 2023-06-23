@@ -1,0 +1,31 @@
+import mongoose from "mongoose";
+
+import MODEL_ATTRIBUTES from "../utils/constants/model-attributes.js";
+
+const ItemSchema = new mongoose.Schema({
+    [MODEL_ATTRIBUTES.HANDLE]: String,
+    [MODEL_ATTRIBUTES.TITLE]: String,
+    [MODEL_ATTRIBUTES.BODY]: String,
+    [MODEL_ATTRIBUTES.VENDOR]: String,
+    [MODEL_ATTRIBUTES.TYPE]: String,
+    [MODEL_ATTRIBUTES.TAGS]: String,
+    [MODEL_ATTRIBUTES.OPTION1_NAME]: String,
+    [MODEL_ATTRIBUTES.OPTION1_VALUE]: String,
+    [MODEL_ATTRIBUTES.OPTION2_NAME]: String,
+    [MODEL_ATTRIBUTES.OPTION2_VALUE]: String,
+    [MODEL_ATTRIBUTES.OPTION3_NAME]: String,
+    [MODEL_ATTRIBUTES.OPTION3_VALUE]: String,
+    [MODEL_ATTRIBUTES.VARIANT_SKU]: String,
+    [MODEL_ATTRIBUTES.VARIANT_GRAMS]: Number,
+    [MODEL_ATTRIBUTES.VARIANT_INVENTORY_TRACKER]: String,
+    [MODEL_ATTRIBUTES.VARIANT_INVENTORY_QTY]: String,
+    [MODEL_ATTRIBUTES.VARIANT_INVENTORY_POLICY]: String,
+    [MODEL_ATTRIBUTES.VARIANT_FULFILLMENT_SERVICE]: String,
+    [MODEL_ATTRIBUTES.VARIANT_PRICE]: Number,
+    [MODEL_ATTRIBUTES.VARIANT_COMPARE_AT_PRICE]: String,
+    [MODEL_ATTRIBUTES.IMAGE_SRC]: String,
+})
+
+const Item = mongoose.model('Item', ItemSchema);
+
+export default Item;
