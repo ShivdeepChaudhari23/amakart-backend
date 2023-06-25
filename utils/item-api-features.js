@@ -1,3 +1,4 @@
+import MODEL_ATTRIBUTES from "./constants/model-attributes.js";
 
 const EXCLUDED_FILTERING_FIELDS = ['page', 'sort', 'limit', 'fields'];
 
@@ -17,8 +18,8 @@ export default class ItemAPIFeatures {
         const queryKey = Object.keys(queryObj)[0];
 
         let findObject = queryObj;
-        if (queryKey) {
-            findObject = {[queryKey]: { '$regex': queryObj[queryKey]}};
+        if (queryKey === 'searchAttribute') {
+            findObject = {$or: [{[MODEL_ATTRIBUTES.TITLE]: {$regex: queryObj[queryKey]}}, {[MODEL_ATTRIBUTES.VARIANT_SKU]: {$regex: queryObj[queryKey]}}]};
         }
         this.query = this.query.find(findObject);
   
